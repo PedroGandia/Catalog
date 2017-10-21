@@ -1,0 +1,108 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'com.neenbedankt.android-apt'
+
+repositories {
+    mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+}
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+    defaultConfig {
+        applicationId "android.test.catalog"
+        minSdkVersion 14
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+
+        jackOptions {
+            enabled true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/maven/com.google.dagger/dagger/pom.properties'
+        exclude 'META-INF/maven/com.google.dagger/dagger/pom.xml'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    //Retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+    //OkHttp
+    //para peticiones rest
+    compile 'com.squareup.okhttp3:okhttp:3.5.0'
+    compile 'com.squareup.okio:okio:1.7.0'
+
+
+    //Gson
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.1'
+
+    //RxJava
+    compile 'io.reactivex:rxjava:1.1.2'
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.1'
+
+    //StorIO
+    compile "com.pushtorefresh.storio:sqlite:1.9.0"
+    compile "com.pushtorefresh.storio:content-resolver:1.9.0"
+    compile "com.pushtorefresh.storio:sqlite-annotations:1.9.0"
+    compile "com.pushtorefresh.storio:content-resolver-annotations:1.9.0"
+    annotationProcessor  "com.pushtorefresh.storio:sqlite-annotations-processor:1.9.0"
+    annotationProcessor  "com.pushtorefresh.storio:content-resolver-annotations-processor:1.9.0"
+
+    annotationProcessor  'com.google.dagger:dagger-compiler:2.2'
+    compile 'com.google.dagger:dagger:2.2'
+    provided 'javax.annotation:jsr250-api:1.0'
+
+    compile 'com.android.support:support-v4:25.1.0'
+    compile 'com.android.support:cardview-v7:25.1.0'
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:design:25.1.0'
+    testCompile 'junit:junit:4.12'
+
+    //Butter Knife para inyectar views
+    compile 'com.jakewharton:butterknife:6.1.0'
+
+    annotationProcessor  "org.androidannotations:androidannotations:4.2.0"
+    compile "org.androidannotations:androidannotations-api:4.2.0"
+
+    //active recor para sqlite
+    compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
+
+
+    compile 'net.eunjae.android.modelmapper:ModelMapper:1.0.6'
+    //compile group: 'org.modelmapper', name: 'modelmapper', version: '0.7.5'
+
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
+
+    compile 'com.dlazaro66.qrcodereaderview:qrcodereaderview:2.0.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.pushtorefresh.storio:sqlite-annotations-processor:1.9.0'
+    annotationProcessor 'com.pushtorefresh.storio:content-resolver-annotations-processor:1.9.0'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.2'
+    annotationProcessor 'org.androidannotations:androidannotations:4.2.0'
+    provided 'javax.annotation:jsr250-api:1.0'
+}
