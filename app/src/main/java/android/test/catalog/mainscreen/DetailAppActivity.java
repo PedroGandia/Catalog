@@ -1,13 +1,16 @@
 package android.test.catalog.mainscreen;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.test.catalog.R;
 import android.test.catalog.mainscreen.base.BaseActivity;
+import android.test.catalog.mainscreen.base.IRedirectOptions;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class DetailAppActivity extends BaseActivity<DetailAppActivity> {
@@ -17,6 +20,8 @@ public class DetailAppActivity extends BaseActivity<DetailAppActivity> {
     private ImageView imgToolbarBack;
 
     private String appId;
+
+    private String categorySelected;
 
     @Override
     protected void init(@Nullable Bundle savedInstanceState) {
@@ -29,9 +34,13 @@ public class DetailAppActivity extends BaseActivity<DetailAppActivity> {
 
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
 
+        TextView txtToolbarTitle = (TextView) findViewById(R.id.txt_toolbar_title);
+        txtToolbarTitle.setText(this.getTitle());
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             appId = extras.getString(APP_ID);
+            categorySelected = extras.getString(CATEGORY_SELECTED);
         }
 
         if (appId != null && !appId.isEmpty()) {
@@ -44,7 +53,12 @@ public class DetailAppActivity extends BaseActivity<DetailAppActivity> {
         imgToolbarBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                redirect(ListAppActivity.class, null);
+                redirect(ListAppActivity.class, new IRedirectOptions() {
+                    @Override
+                    public void onRedirect(Intent intent) {
+                        intent.putExtra(CATEGORY_SELECTED,categorySelected);
+                    }
+                });
             }
         });
     }
@@ -63,6 +77,11 @@ public class DetailAppActivity extends BaseActivity<DetailAppActivity> {
 
     @Override
     public void onBackPressed() {
-        redirect(ListAppActivity.class, null);
+        redirect(ListAppActivity.class, new IRedirectOptions() {
+            @Override
+            public void onRedirect(Intent intent) {
+                intent.putExtra(CATEGORY_SELECTED,categorySelected);
+            }
+        });
     }
 }

@@ -123,6 +123,7 @@ public class ListAppActivity extends BaseActivity<ListAppActivity> implements Ma
                         @Override
                         public void onRedirect(Intent intent) {
                             intent.putExtra(APP_ID,listAppList.get(item_select).getId());
+                            intent.putExtra(CATEGORY_SELECTED,categorySelected);
                         }
                     });
                 }
