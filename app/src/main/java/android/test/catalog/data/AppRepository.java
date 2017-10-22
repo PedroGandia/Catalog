@@ -13,7 +13,7 @@ import rx.Observable;
 import rx.functions.Func1;
 
 /**
- * Created by Aditya on 23-Oct-16.
+ * Created by pedrog295@gmail.com on 21/10/2017.
  */
 
 public class AppRepository implements AppDataStore {
@@ -34,8 +34,6 @@ public class AppRepository implements AppDataStore {
                 .first(new Func1<List<Data>, Boolean>() {
                     @Override
                     public Boolean call(List<Data> dataList) {
-                        //Commeted this log due Arrayindexoutofbound exception at first lauch of application
-//                        Log.d("Repo", datas.get(0).getTitle());
                         return dataList != null;
                     }
                 });

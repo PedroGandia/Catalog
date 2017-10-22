@@ -13,6 +13,9 @@ import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
+/**
+ * Created by pedrog295@gmail.com on 21/10/2017.
+ */
 
 public class MainScreenPresenter implements MainScreenContract.Presenter {
 
@@ -35,7 +38,6 @@ public class MainScreenPresenter implements MainScreenContract.Presenter {
                 .subscribe(new Observer<List<Data>>() {
                     @Override
                     public void onCompleted(){
-                        Log.d(TAG, "Complete loadData");
                         mView.showComplete("loadData");
                     }
 
@@ -47,11 +49,7 @@ public class MainScreenPresenter implements MainScreenContract.Presenter {
 
                     @Override
                     public void onNext(List<Data> dataList){
-//                        if (!isRemote && dataList.size() > 0){
                             mView.showDataList(dataList);
-//                        }else if (isRemote){
-//                            mView.showDataList(dataList);
-//                        }
                     }
                 });
     }
@@ -63,7 +61,6 @@ public class MainScreenPresenter implements MainScreenContract.Presenter {
                 .subscribe(new Observer<List<Data>>() {
                     @Override
                     public void onCompleted() {
-                        Log.d(TAG, "Complete loadDataFromRemoteDataStore");
                         mView.showComplete("loadDataFromRemote");
                         loadData(true);
                     }
@@ -72,7 +69,7 @@ public class MainScreenPresenter implements MainScreenContract.Presenter {
                     public void onError(Throwable e){
                         Log.d(TAG, e.toString());
                         mView.showError(e.toString());
-                        loadData(true);//**
+                        loadData(true);
                     }
 
                     @Override
@@ -89,7 +86,6 @@ public class MainScreenPresenter implements MainScreenContract.Presenter {
 
     @Override
     public void unsubscribe() {
-        //Unsubscribe Rx subscription
         if (mSubscription != null && mSubscription.isUnsubscribed())
             mSubscription.unsubscribe();
     }

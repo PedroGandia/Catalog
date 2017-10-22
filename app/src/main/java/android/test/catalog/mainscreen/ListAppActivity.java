@@ -24,6 +24,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+/**
+ * Created by pedrog295@gmail.com on 21/10/2017.
+ */
+
 public class ListAppActivity extends BaseActivity<ListAppActivity> implements MainScreenContract.View, SwipeRefreshLayout.OnRefreshListener {
 
     private RecyclerView rvListApp;
@@ -79,6 +83,7 @@ public class ListAppActivity extends BaseActivity<ListAppActivity> implements Ma
 
         new MainScreenPresenter(repository, this);
 
+        overridePendingTransition(R.anim.activity_open_translate,R.anim.activity_close_scale);
     }
 
 
@@ -90,7 +95,7 @@ public class ListAppActivity extends BaseActivity<ListAppActivity> implements Ma
         listAppList.clear();
 
         for (int i = 0; i < dataList.size(); i++){
-            String category = dataList.get(i).getAudience_target();
+            String category = dataList.get(i).getAudienceTarget();
             if (categorySelected != null && !categorySelected.isEmpty()) {
                 if (category != null && category.contains(categorySelected)) {
                     listAppList.add(dataList.get(i));
@@ -184,6 +189,7 @@ public class ListAppActivity extends BaseActivity<ListAppActivity> implements Ma
         super.onPause();
         mPresenter.unsubscribe();
         pbToolbarLoading.setVisibility(View.INVISIBLE);
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
     }
 
     @Override

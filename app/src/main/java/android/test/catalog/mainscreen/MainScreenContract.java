@@ -7,6 +7,9 @@ import android.test.catalog.data.local.models.Data;
 
 import java.util.List;
 
+/**
+ * Created by pedrog295@gmail.com on 21/10/2017.
+ */
 
 public class MainScreenContract {
 

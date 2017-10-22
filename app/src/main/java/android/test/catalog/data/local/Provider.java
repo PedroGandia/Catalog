@@ -10,8 +10,7 @@ import android.net.Uri;
 import android.support.annotation.Nullable;
 
 /**
- *
- * Created by Aditya on 23-Oct-16.
+ * Created by pedrog295@gmail.com on 21/10/2017.
  */
 
 public class Provider extends ContentProvider {

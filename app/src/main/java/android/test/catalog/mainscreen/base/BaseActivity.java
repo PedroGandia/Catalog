@@ -15,6 +15,9 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 
+/**
+ * Created by pedrog295@gmail.com on 21/10/2017.
+ */
 
 public abstract class BaseActivity<T> extends AppCompatActivity {
 
@@ -25,6 +28,8 @@ public abstract class BaseActivity<T> extends AppCompatActivity {
     public static final float ASPECT_RATIO_ITEM = 0.75f; //4:3, 75%
 
     public static final int MIN_DP_WIDTH_ITEM = 190;
+
+    public static final int MIN_ROW_ITEM = 2;
 
 
     private Context context;
@@ -94,6 +99,7 @@ public abstract class BaseActivity<T> extends AppCompatActivity {
         Snackbar.make(coordinatorLayout, message, Snackbar.LENGTH_LONG).show();
     }
 
+
     protected int getNumberItemsRow(){
         Display display = getWindowManager().getDefaultDisplay();
         DisplayMetrics outMetrics = new DisplayMetrics ();
@@ -104,7 +110,7 @@ public abstract class BaseActivity<T> extends AppCompatActivity {
 
         int items = (int) dpWidth / MIN_DP_WIDTH_ITEM;
 
-        return items==1?MIN_DP_WIDTH_ITEM:items;
+        return items==1?MIN_ROW_ITEM:items;
 
 
     }

@@ -5,7 +5,9 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 import android.support.annotation.NonNull;
 
-
+/**
+ * Created by pedrog295@gmail.com on 21/10/2017.
+ */
 
 public class DatabaseContract {
 

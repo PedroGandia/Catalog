@@ -6,6 +6,9 @@ import android.test.catalog.dagger.component.DaggerAppComponent;
 import android.test.catalog.dagger.module.AppModule;
 import android.test.catalog.dagger.module.DataModule;
 
+/**
+ * Created by pedrog295@gmail.com on 21/10/2017.
+ */
 
 public class App extends Application {
 

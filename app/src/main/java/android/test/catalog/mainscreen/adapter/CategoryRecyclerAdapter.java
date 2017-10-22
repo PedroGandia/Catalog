@@ -3,7 +3,6 @@ package android.test.catalog.mainscreen.adapter;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.test.catalog.R;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
+/**
+ * Created by pedrog295@gmail.com on 21/10/2017.
+ */
 
 public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecyclerAdapter.CategoryViewHolder> implements View.OnClickListener , View.OnLongClickListener{
 
@@ -52,11 +54,7 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
      public CategoryRecyclerAdapter(List<String> categoryItems, Context context){
          this.categoryItems = categoryItems;
          this.context = context;
-         Log.e("CategoryRecyclerAdapter", categoryItems.size() + "");
     }
-
-
-
 
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
@@ -103,10 +101,5 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
     public void setOnLongClickListener(View.OnLongClickListener listener) {
         this.onLongClickListener = listener;
     }
-
-
-
-
-
 
 }

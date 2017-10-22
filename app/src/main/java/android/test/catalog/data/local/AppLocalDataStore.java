@@ -8,7 +8,6 @@ import android.test.catalog.data.local.models.Data;
 import android.test.catalog.data.local.models.DataStorIOContentResolverDeleteResolver;
 import android.test.catalog.data.local.models.DataStorIOContentResolverGetResolver;
 import android.test.catalog.data.local.models.DataStorIOContentResolverPutResolver;
-import android.util.Log;
 
 import com.pushtorefresh.storio.contentresolver.ContentResolverTypeMapping;
 import com.pushtorefresh.storio.contentresolver.StorIOContentResolver;
@@ -21,6 +20,9 @@ import javax.inject.Inject;
 
 import rx.Observable;
 
+/**
+ * Created by pedrog295@gmail.com on 21/10/2017.
+ */
 
 public class AppLocalDataStore implements AppDataStore {
 
@@ -41,7 +43,6 @@ public class AppLocalDataStore implements AppDataStore {
 
     @Override
     public Observable<List<Data>> getData() {
-        Log.d("LOCAL","Loaded from local");
         return mStorIOContentResolver.get()
                 .listOfObjects(Data.class)
                 .withQuery(Query.builder().uri(DatabaseContract.Data.CONTENT_URI)

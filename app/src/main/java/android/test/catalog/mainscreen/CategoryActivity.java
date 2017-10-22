@@ -25,6 +25,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+/**
+ * Created by pedrog295@gmail.com on 21/10/2017.
+ */
+
 public class CategoryActivity extends BaseActivity<CategoryActivity> implements MainScreenContract.View, SwipeRefreshLayout.OnRefreshListener {
 
     private RecyclerView rvCategory;
@@ -70,7 +74,7 @@ public class CategoryActivity extends BaseActivity<CategoryActivity> implements 
         List<String> listWithDuplicates = new ArrayList<>();
 
         for (int i = 0; i < dataList.size(); i++){
-            String category = dataList.get(i).getAudience_target();
+            String category = dataList.get(i).getAudienceTarget();
 
             if(category != null && category.contains(",")){
                 String[] categoryCommaList = category.split("\\s*,\\s*");

@@ -2,6 +2,9 @@ package android.test.catalog.data.local.models;
 
 public class DataResponse {
 
+    /**
+     * Created by pedrog295@gmail.com on 21/10/2017.
+     */
 
     private String kind;
     private Data data;

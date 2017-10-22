@@ -16,6 +16,9 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.List;
 
+/**
+ * Created by pedrog295@gmail.com on 21/10/2017.
+ */
 
 public class ListAppRecyclerAdapter extends RecyclerView.Adapter<ListAppRecyclerAdapter.ListAppViewHolder> implements View.OnClickListener , View.OnLongClickListener{
 
@@ -90,9 +93,10 @@ public class ListAppRecyclerAdapter extends RecyclerView.Adapter<ListAppRecycler
 
 
             Data data = listAppItems.get(position);
-            listAppViewHolder.txtNameApp.setText(data.getDisplay_name()!=null?data.getDisplay_name():"");
+            listAppViewHolder.txtNameApp.setText(data.getDisplayName()!=null?data.getDisplayName():"");
             Glide.with(context.getApplicationContext())
-                .load(data.getIcon_img())
+                .load(data.getIconImg())
+                .error(R.mipmap.ic_launcher)
                 .thumbnail(0.5f)
                 .crossFade()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)

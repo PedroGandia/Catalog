@@ -1,9 +1,9 @@
 package android.test.catalog;
 
 /**
- * A Base Presenter which is inherited by all other Presenters
- *
+ * Created by pedrog295@gmail.com on 21/10/2017.
  */
+
 public interface BaseView<T> {
     void setPresenter(T presenter);
 }

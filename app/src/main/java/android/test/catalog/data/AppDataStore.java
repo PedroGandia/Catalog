@@ -8,7 +8,7 @@ import java.util.List;
 import rx.Observable;
 
 /**
- * Created by Aditya on 23-Oct-16.
+ * Created by pedrog295@gmail.com on 21/10/2017.
  */
 
 public interface AppDataStore {

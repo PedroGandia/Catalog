@@ -10,6 +10,10 @@ import android.view.WindowManager;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Created by pedrog295@gmail.com on 21/10/2017.
+ */
+
 public class SplashActivity extends BaseActivity<SplashActivity> {
 
     private static final String TAG = SplashActivity.class.getSimpleName();
@@ -18,7 +22,6 @@ public class SplashActivity extends BaseActivity<SplashActivity> {
 
     @Override
     protected void init(@Nullable Bundle savedInstanceState) {
-        // To make activity full screen.
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -33,7 +36,6 @@ public class SplashActivity extends BaseActivity<SplashActivity> {
             }
         };
 
-        // Simulate a long loading process on application startup.
         Timer timer = new Timer();
         timer.schedule(task, SPLASH_SCREEN_DELAY);
     }

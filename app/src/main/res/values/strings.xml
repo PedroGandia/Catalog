@@ -1,10 +1,13 @@
 <resources>
-    <string name="app_name">Catalog Apps</string>
-    <string name="title_activity_splash">Splash</string>
-    <string name="title_activity_category">Apps Category</string>
-    <string name="title_activity_list_app">Apps by Category</string>
+    <string name="app_name">Apps catalog</string>
+    <string name="title_activity_splash" translatable="false">Splash</string>
+    <string name="title_activity_category">Apps category</string>
+    <string name="title_activity_list_app">Apps by category</string>
     <string name="title_other">other</string>
     <string name="title_activity_detail_app">Detail App</string>
-    <string name="title_list_empty">List empty</string>
+    <string name="title_list_empty">The list is empty</string>
     <string name="title_in_mode_offline">App is in offline mode. Check your internet connection: wi-fi or mobile data.</string>
+    <string name="title_description">Description:</string>
+    <string name="title_audience_target">Audience target:</string>
+
 </resources>

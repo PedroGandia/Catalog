@@ -18,6 +18,9 @@ import retrofit2.http.GET;
 import rx.Observable;
 import rx.functions.Func1;
 
+/**
+ * Created by pedrog295@gmail.com on 21/10/2017.
+ */
 
 public class AppRemoteDataStore implements AppDataStore {
 
@@ -49,13 +52,6 @@ public class AppRemoteDataStore implements AppDataStore {
                 return dataList;
             }
         });
-
-//        return retrofit.create(DataService.class).getDataList().doOnNext(new Action1<List<Data>>() {
-//            @Override
-//            public void call(List<Data> posts) {
-//                appLocalDataStore.saveDataToDatabase(posts);
-//            }
-//        });
     }
 
 
