@@ -5,7 +5,7 @@
     <string name="title_activity_detail_app">Detalle de la app</string>
     <string name="title_activity_list_app">Apps por categoría</string>
     <string name="title_audience_target">Audiencia de destino:</string>
-    <string name="title_description">Descripcion:</string>
+    <string name="title_description">Descripción:</string>
     <string name="title_in_mode_offline">La aplicación está en modo offline. Verifique su conexión a internet: wi-fi o datos móviles.</string>
     <string name="title_other">otro</string>
     <string name="title_list_empty">La lista está vacía</string>

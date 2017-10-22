@@ -12,9 +12,7 @@ import android.test.catalog.data.local.models.Data;
 import android.test.catalog.mainscreen.base.BaseActivity;
 import android.test.catalog.mainscreen.base.IRedirectOptions;
 import android.test.catalog.mainscreen.loader.DataLoader;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -25,12 +23,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
  */
 
 public class DetailAppActivity extends BaseActivity<DetailAppActivity> {
-
-    private ProgressBar pbToolbarLoading;
-
-    private Toolbar toolbar;
-
-    private ImageView imgToolbarBack;
 
     private ImageView imgHeaderApp;
 
@@ -48,15 +40,11 @@ public class DetailAppActivity extends BaseActivity<DetailAppActivity> {
     protected void init(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.activity_detail_app);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         imgHeaderApp = (ImageView) findViewById(R.id.img_header_app);
 
-        imgToolbarBack = (ImageView) findViewById(R.id.img_toolbar_back);
-        onClickListenerToolbarBack();
-
-        pbToolbarLoading = (ProgressBar) findViewById(R.id.pb_toolbar_loading);
 
         txtName = (TextView) findViewById(R.id.txt_name);
 
@@ -81,30 +69,14 @@ public class DetailAppActivity extends BaseActivity<DetailAppActivity> {
 
     }
 
-    private void onClickListenerToolbarBack(){
-        imgToolbarBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                redirect(ListAppActivity.class, new IRedirectOptions() {
-                    @Override
-                    public void onRedirect(Intent intent) {
-                        intent.putExtra(CATEGORY_SELECTED,categorySelected);
-                    }
-                });
-            }
-        });
-    }
-
     @Override
     protected void onResume() {
         super.onResume();
-        //pbToolbarLoading.setVisibility(View.VISIBLE);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        //pbToolbarLoading.setVisibility(View.INVISIBLE);
     }
 
     @Override
